@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "version": "0.0.0.1",
+    "name": "Web Fonts Unicode Range",
+    "description": "Show unicode range of each font on your webpage for creating minimal font subsets",
+    "icons": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    },
+    "action": {
+        "default_title": "Click to Show unicode range of each font",
+        "default_icon": {
+            "16": "images/icon-16.png",
+            "32": "images/icon-32.png",
+            "48": "images/icon-48.png",
+            "128": "images/icon-128.png"
+        }
+    },
+    "permissions": ["activeTab", "scripting", "sidePanel", "storage"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": ["https://*/*", "http://*/*"],
+    "content_scripts": [
+        {
+            "js": ["content.js"],
+            "matches": ["https://*/*", "http://*/*"]
+        }
+    ],
+    "side_panel": {
+        "default_path": "sidepanel.html"
+    }
+}
